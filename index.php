@@ -8,7 +8,7 @@
 <h2>Bubble Sort Program</h2>
 
 <form method="post">
-    <label>Enter integers separated by commas:</label><br>
+    <label>Enter integers separated by command:</label><br>
     <input type="text" name="numbers" required>
     <br><br>
 
@@ -28,7 +28,7 @@ function bubbleSort($arr, $order) {
     $n = count($arr);
     $swaps = 0;
 
-    // Bubble Sort
+
     for ($i = 0; $i < $n - 1; $i++) {
         for ($j = 0; $j < $n - $i - 1; $j++) {
 
@@ -37,7 +37,7 @@ function bubbleSort($arr, $order) {
                        : ($arr[$j] < $arr[$j + 1]);
 
             if ($condition) {
-                // swap
+               
                 $temp = $arr[$j];
                 $arr[$j] = $arr[$j + 1];
                 $arr[$j + 1] = $temp;
@@ -51,15 +51,15 @@ function bubbleSort($arr, $order) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Get user input
+   
     $input = $_POST["numbers"];
     $order = $_POST["order"];
 
-    // Convert to array
+    
     $arr = array_map('intval', explode(",", $input));
     $original = $arr;
 
-    // Sort
+    
     list($sorted, $swaps) = bubbleSort($arr, $order);
 
     echo "<h3>Results:</h3>";
